@@ -1,0 +1,31 @@
+version: '3.9'
+
+volumes:
+  db-data:
+
+services:
+  db:
+    image: mysql:8
+    command: --innodb-buffer-pool-size=1G --innodb-read-io-threads=8
+    environment:
+      MYSQL_DATABASE: 'db'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - '3366:3306'
+    volumes:
+      - db-data:/var/lib/mysql
+
+  s3:
+    image: minio/minio
+    entrypoint: sh
+    command: -c 'mkdir -p /data/demo && minio server --console-address ":9001" /data'
+    ports:
+      - '9097:9000'
+      - '9098:9001'
+    volumes:
+      - ./minio-data:/data
+    environment:
+      MINIO_ACCESS_KEY: 'minio'
+      MINIO_SECRET_KEY: 'minio123'
