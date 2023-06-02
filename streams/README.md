@@ -2,7 +2,7 @@
 # Efficient Data Handling with Node.js Streams
 
 
-Welcome to the "Efficient Data Handling with Node.js Streams" repository! This repository is an extension of the Confluence documentation by Mosaic Learning, providing practical examples and demonstrations of how to leverage the power of Node.js streams for efficient data processing.
+Welcome to the "Efficient Data Handling with Node.js Streams" repository! This repository provides practical examples and demonstrations of how to leverage the power of Node.js streams for efficient data processing.
 
 ## Overview
 
